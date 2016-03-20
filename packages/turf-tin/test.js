@@ -9,6 +9,8 @@ test('tin', function(t){
   t.equal(tinned.features[0].geometry.type, 'Polygon');
   t.equal(tinned.features.length, 24);
 
-  fs.writeFileSync(__dirname+'/geojson/Tin.geojson', JSON.stringify(tinned));
+  if (process.env.UPDATE) {
+    fs.writeFileSync(__dirname+'/geojson/Tin.geojson', JSON.stringify(tinned));
+  }
   t.end();
 });

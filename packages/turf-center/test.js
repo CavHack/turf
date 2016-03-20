@@ -18,8 +18,11 @@ test('center', function(t){
 
   boxFC.features.push(boxFcCenter);
   blockFC.features.push(blockFcCenter);
-  fs.writeFileSync(__dirname+'/fixtures/out/box_out.geojson', JSON.stringify(boxFC,null,2));
-  fs.writeFileSync(__dirname+'/fixtures/out/block_out.geojson', JSON.stringify(blockFC,null,2));
+
+  if (process.env.UPDATE) {
+    fs.writeFileSync(__dirname+'/fixtures/out/box_out.geojson', JSON.stringify(boxFC,null,2));
+    fs.writeFileSync(__dirname+'/fixtures/out/block_out.geojson', JSON.stringify(blockFC,null,2));
+  }
 
   t.end();
 });
